@@ -1,4 +1,4 @@
-pyxedit
+Pyxedit
 =======
 
-Text edit written in python
+Text editor written in python. *WIP*
