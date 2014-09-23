@@ -14,10 +14,18 @@ class Window(QtGui.QWidget):
         self.initUI()
 
     def initUI(self):
-        self.setGeometry(300, 300, 800, 600)
+        self.resize(800, 600)
+        self.center()
         self.setWindowTitle('PyxEdit')
         #self.setWindowIcon(QtGui.QIcon(TODO))
         self.show()
+
+    def center(self):
+        get_rect = self.frameGeometry()
+        center_point = QtGui.QDesktopWidget().availableGeometry().center()
+        get_rect.moveCenter(center_point)
+        self.move(get_rect.topLeft())
+
 def main():
     app = QtGui.QApplication(sys.argv)
     w = Window()
