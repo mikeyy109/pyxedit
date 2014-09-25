@@ -55,3 +55,4 @@ target/
 
 # Pycharm project files
 *.xml
+.idea/
