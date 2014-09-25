@@ -14,11 +14,28 @@ class Main_Window(QtGui.QMainWindow):
         self.initUI()
 
     def initUI(self):
+        text_edit = QtGui.QTextEdit()
+        self.setCentralWidget(text_edit)
+
+        exit_action = QtGui.QAction(QtGui.QIcon('assets/exit.png'), 'Exit', self)
+        exit_action.setShortcut('Ctrl+Q')
+        exit_action.setStatusTip('Exit application')
+        exit_action.triggered.connect(QtGui.qApp.quit)
+
+        self.statusBar().showMessage('...')
+
+        menu_bar = self.menuBar()
+        file_menu = menu_bar.addMenu('&File')
+        file_menu.addAction(exit_action)
+
+        #tool_bar = self.addToolBar('Exit')
+        #tool_bar.addAction(exit_action)
+
         self.resize(800, 600)
         self.center()
         self.setWindowTitle('PyxEdit')
-        #self.setWindowIcon(QtGui.QIcon(TODO))
-        self.statusBar().showMessage('...')
+        #self.setWindowIcon(QtGui.QIcon())#TODO
+
         self.show()
 
     def center(self):
